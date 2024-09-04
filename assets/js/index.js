@@ -1,3 +1,5 @@
+import { API_BASE_URL } from './config.js';
+
 document.addEventListener("DOMContentLoaded", () => {
     const accessToken = localStorage.getItem("accessToken");
     const userProfile = JSON.parse(localStorage.getItem("userProfile"));
@@ -5,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // localStorage.clear()
 
     if (accessToken && userProfile) {
-        const profileImageUrl = `http://localhost:8000/images/${userProfile.image_filename}`;
+        const profileImageUrl = `${API_BASE_URL}/images/${userProfile.image_filename}`;
         userIcon.innerHTML = `
             <img src="${profileImageUrl}" alt="Profile Image" style="width: 28px; height: 28px; border-radius: 50%; object-fit: cover;">
         `;

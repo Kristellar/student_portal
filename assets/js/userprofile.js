@@ -1,3 +1,5 @@
+import { API_BASE_URL } from './config.js';
+
 document.addEventListener("DOMContentLoaded", async () => {
     const accessToken = localStorage.getItem("accessToken");
     const backendUrl = "http://localhost:8000/user";
@@ -9,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     try {
-        const response = await fetch(`${backendUrl}/profile/`, {
+        const response = await fetch(`${API_BASE_URL}/user/profile`, {
             method: "GET",
             headers: {
                 "Authorization": `Bearer ${accessToken}`,

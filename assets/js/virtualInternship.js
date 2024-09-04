@@ -1,3 +1,5 @@
+import { API_BASE_URL } from './config.js';
+
 document.getElementById('internshipForm').addEventListener('submit', async function(event) {
     event.preventDefault();
 
@@ -23,7 +25,7 @@ document.getElementById('internshipForm').addEventListener('submit', async funct
     }
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/virtualInternship/', {
+        const response = await fetch(`${API_BASE_URL}/virtualInternship/`, {
             method: 'POST',
             body: newFormData,
             headers: {

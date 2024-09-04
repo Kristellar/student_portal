@@ -1,4 +1,4 @@
-
+import { API_BASE_URL } from './config.js';
 
 const backendUrl = "http://127.0.0.1:8000/users/"
 
@@ -10,7 +10,7 @@ document.getElementById("registerForm").addEventListener("submit", async (event)
 
     try {
         console.log("ok")
-        const response = await fetch(backendUrl, {
+        const response = await fetch(`${API_BASE_URL}/users/`, {
             method: "POST",
             body: formData,
         });

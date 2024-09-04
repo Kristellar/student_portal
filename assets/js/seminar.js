@@ -1,3 +1,5 @@
+import { API_BASE_URL } from './config.js';
+
 document.getElementById('seminarForm').addEventListener('submit', async function(event) {
     event.preventDefault();  // Prevent the default form submission
 
@@ -23,7 +25,7 @@ document.getElementById('seminarForm').addEventListener('submit', async function
     // }
 
     try {
-        const response = await fetch('http://127.0.0.1:8000/seminar/', {
+        const response = await fetch(`${API_BASE_URL}/seminar/`, {
             method: 'POST',
             body: newFormData,
             headers: {

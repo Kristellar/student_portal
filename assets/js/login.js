@@ -1,3 +1,5 @@
+import { API_BASE_URL } from './config.js';
+
 document.getElementById("loginForm").addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -6,10 +8,10 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
         password: document.getElementById("password").value,
     };
 
-    const backendUrl = "http://localhost:8000";
+    //const backendUrl = "http://localhost:8000";
 
     try {
-        let response = await fetch(`${backendUrl}/login`, {
+        let response = await fetch(`${API_BASE_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -22,7 +24,7 @@ document.getElementById("loginForm").addEventListener("submit", async (event) =>
             localStorage.setItem("accessToken", data.access_token);
 
             // Fetch and store user profile data
-            let profileResponse = await fetch(`${backendUrl}/user/profile/`, {
+            let profileResponse = await fetch(`${API_BASE_URL}/user/profile/`, {
                 method: "GET",
                 headers: {
                     "Authorization": `Bearer ${data.access_token}`,
